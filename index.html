@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hindu Calendar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>🕉 Hindu Calendar</h1>
+        <p id="todayDate">Loading...</p>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Panchang Card -->
+        <div class="card">
+
+            <h2 class="section-title">Today's Panchang</h2>
+
+            <div class="info">
+
+                <p>🪔 Tithi
+                    <span id="tithi">Loading...</span>                </p>
+
+                <p>⭐ Nakshatra
+                    <span class="value" id="nakshatra">Loading...</span>
+                </p>
+
+                <p>🌞 Yoga
+                    <span class="value" id="yoga">Loading...</span>
+                </p>
+
+                <p>🕉 Karana
+                    <span class="value" id="karana">Loading...</span>
+                </p>
+
+                <p>🌅 Sunrise
+                    <span class="value" id="sunrise">Loading...</span>
+                </p>
+
+                <p>🌇 Sunset
+                    <span class="value" id="sunset">Loading...</span>
+                </p>
+
+                <p>🌙 Moonrise
+                    <span class="value" id="moonrise">Loading...</span>
+                </p>
+
+                <p>🌘 Moonset
+                    <span class="value" id="moonset">Loading...</span>
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Today's Festival -->
+
+        <div class="card">
+
+            <h2 class="section-title">Today's Festival</h2>
+
+            <h3 id="festival">
+                No Festival
+            </h3>
+
+        </div>
+
+        <!-- Upcoming Festival -->
+
+        <div class="card">
+
+            <h2 class="section-title">Upcoming Festival</h2>
+
+            <h3 id="upcomingFestival">
+                Guru Purnima
+            </h3>
+
+        </div>
+
+        <!-- Calendar -->
+
+    <div class="card">
+
+         <div class="calendar-header">
+
+         <button id="prevBtn">&lt;</button>
+
+         <h2 id="monthYear"></h2>
+
+         <button id="nextBtn">&gt;</button>
+
+        </div>
+
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+     </div>
+
+      <div id="calendar"></div>
+
+    </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+
+    <nav class="bottom-nav">
+
+        <button>🏠</button>
+
+        <button>📅</button>
+
+        <button>🪔</button>
+
+        <button>⚙</button>
+
+    </nav>
+
+    <script src="js/app.js"></script>
+    <script src="js/festival.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/panchang.js"></script>
+    <script src="js/api.js"></script>
+
+</body>
+
+</html>
