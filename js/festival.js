@@ -32,5 +32,33 @@ function isFestival(date) {
 
 }
 
+// Get Festival Name
+function getFestival(date) {
+
+    const festival = festivals.find(item => item.date === date);
+
+    return festival ? festival.festival : "No Festival";
+
+}
+
+// Get Upcoming Festival
+function getUpcomingFestival(date) {
+
+    const current = new Date(date);
+
+    for (let item of festivals) {
+
+        const festivalDate = new Date(item.date);
+
+        if (festivalDate > current) {
+            return item.festival;
+        }
+
+    }
+
+    return "No Upcoming Festival";
+
+}
+
 // Start Loading
 loadFestivals();

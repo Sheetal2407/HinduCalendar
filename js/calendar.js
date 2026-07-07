@@ -29,13 +29,6 @@ const panchangData = {
     }
 
 };
-
-function isFestival(date){
-
-    return festivals.some(item=>item.date===date);
-
-}
-
 // ==========================
 // Update Panchang
 // ==========================
@@ -132,11 +125,16 @@ function renderCalendar() {
 
        if (isFestival(fullDate)) {
 
+        box.style.color = "#ff6f00";
+    box.style.fontWeight = "bold";
+
             const dot = document.createElement("div");
 
             dot.classList.add("festival-dot");
 
             box.appendChild(dot);
+
+            box.title = festivals.find(item => item.date === fullDate).festival;
 
         }
         // Today Highlight
@@ -155,19 +153,23 @@ function renderCalendar() {
 
         box.addEventListener("click", function () {
 
-            document.querySelectorAll(".day").forEach(d => {
+    document.querySelectorAll(".day").forEach(d => {
+        d.classList.remove("selected");
+    });
 
-                d.classList.remove("selected");
+    box.classList.add("selected");
 
-            });
+    updatePanchang(fullDate);
 
-            box.classList.add("selected");
+    // Festival Name Update
+    document.getElementById("festival").textContent =
+getFestival(fullDate);
 
-            updatePanchang(fullDate);
+        // Upcoming Festival
+    document.getElementById("upcomingFestival").textContent =
+getUpcomingFestival(fullDate);
 
-            console.log(fullDate);
-
-        });
+});
 
         calendar.appendChild(box);
 
@@ -178,6 +180,21 @@ function renderCalendar() {
 // Initial Load
 // ==========================
 renderCalendar();
+
+// Load Today's Data
+
+const currentToday = new Date();
+
+const todayDate =
+`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
+
+updatePanchang(todayDate);
+
+document.getElementById("festival").textContent =
+getFestival(todayDate);
+
+document.getElementById("upcomingFestival").textContent =
+getUpcomingFestival(todayDate);
 // ==========================
 // Previous Month
 // ==========================
